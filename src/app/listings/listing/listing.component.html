@@ -1,0 +1,22 @@
+<mat-card class="card">
+        <a [routerLink]="[ '/listings' ]">back</a>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{alisting.title}}</mat-card-title>
+      <mat-card-subtitle>{{alisting.city}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="image">
+    <img mat-card-image src="{{imageUrl}}" alt="mansion"></div>
+    <mat-card-content>
+        <mat-list role="list">
+            <mat-list-item role="listitem">Owner: {{alisting.owner}}</mat-list-item>
+            <mat-list-item role="listitem">Bedrooms: {{alisting.bedrooms}}</mat-list-item>
+            <mat-list-item role="listitem">Type: {{alisting.type}}</mat-list-item>
+            <mat-list-item role="listitem">Price: ${{alisting.price}}</mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onEdit()">Edit</button>
+      <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+    </mat-card-actions>
+  </mat-card>

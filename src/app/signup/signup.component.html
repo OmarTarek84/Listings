@@ -1,0 +1,34 @@
+<form fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="signup()" #f="ngForm">
+  <mat-form-field>
+    <input type="email" 
+           matInput 
+           placeholder="Email" 
+           autocomplete="off" 
+           ngModel 
+           required 
+           email 
+           name="email" 
+           #Email="ngModel">
+    <mat-error *ngIf="!Email.hasError('required')">Email is not valid</mat-error>
+    <mat-error *ngIf="Email.hasError('required')">This field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" 
+           matInput 
+           placeholder="Password" 
+           ngModel 
+           required 
+           name="password"
+           minlength="8"
+           #Password="ngModel">
+           <mat-hint align="end">{{ Password.value?.length }} / 8</mat-hint>
+           <mat-error>Should Be At Least 8 Characters.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" required ngModel name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary" [disabled]="f.invalid">Sign Up</button>
+</form>
+

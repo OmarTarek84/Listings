@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="toggle()" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div class="logo">
+        Property Listings
+    </div>
+    <ul fxFlex fxLayout="row" fxLayoutAlign="start" fxLayoutGap="12px" style="padding-left: 50px;" fxHide.lt-md>
+        <li *ngIf="!isAuth"><a [routerLink]="[ '' ]">Home</a></li>
+        <li *ngIf="isAuth"><a [routerLink]="[ 'listings' ]">Listings</a></li>
+        <li *ngIf="isAuth"><a [routerLink]="[ 'addlisting' ]">Add Listings</a></li>
+    </ul>
+    <ul fxFlex fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px" style="padding-right: 50px;" fxHide.lt-md>
+        <li *ngIf="isAuth" style="cursor: pointer;" ><a [routerLink]="[ '' ]" (click)="isAuth=false">LogOut</a></li>
+        <li *ngIf="!isAuth" style="cursor: pointer;"><a [routerLink]="[ 'signup' ]">Sign Up</a></li>
+    </ul>
+</mat-toolbar>

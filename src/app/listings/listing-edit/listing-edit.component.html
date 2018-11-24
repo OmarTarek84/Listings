@@ -1,0 +1,37 @@
+<section>
+  <a [routerLink]="[ '/listings']">To Listings</a>
+  <h1>Edit Your Listing</h1>
+  <hr>
+</section>
+
+<form (ngSubmit)="onEdit()" #f="ngForm" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
+      <mat-form-field>
+          <input type="text" [ngModel]="title" name="title" matInput placeholder="Title" />
+      </mat-form-field>
+  
+      <mat-form-field>
+          <input type="text" [ngModel]="city" name="city" matInput placeholder="City">
+      </mat-form-field>
+  
+      <mat-form-field>
+          <input type="text" [ngModel]="owner" name="owner" matInput placeholder="Owner">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input type="number" [ngModel]="bedrooms" name="bedrooms" matInput placeholder="Bedrooms">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input type="text" [ngModel]="type" name="type" matInput placeholder="Type">
+      </mat-form-field>
+
+      <input type="hidden" [ngModel]="image" name="image" id="image">
+
+      <mat-form-field>
+          <input type="text" [ngModel]="price" name="price" matInput placeholder="Price">
+      </mat-form-field>
+
+
+      <button type="submit" mat-raised-button color="primary">Update</button>
+</form>
+

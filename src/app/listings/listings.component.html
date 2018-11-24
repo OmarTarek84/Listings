@@ -1,0 +1,8 @@
+<section fxLayout="column">
+    <app-listings-table *ngFor="let listing of listings; let i = index;" 
+                        [listing]="listing"
+                        [index] = "i"></app-listings-table>
+</section>
+<app-listing
+             *ngIf="selectedListing" 
+             [alisting]="selectedListing"></app-listing>

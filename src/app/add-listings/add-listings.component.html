@@ -1,0 +1,37 @@
+<section>
+    <a [routerLink]="[ '/listings']">back</a>
+    <h1>Add Listings</h1>
+    <hr>
+</section>
+
+<form (ngSubmit)="onAdd()" #f="ngForm" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px">
+        <mat-form-field>
+            <input type="text" ngModel name="title" matInput placeholder="Title">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input type="text" ngModel name="city" matInput placeholder="City">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input type="text" ngModel name="owner" matInput placeholder="Owner">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="number" ngModel name="bedrooms" matInput placeholder="Bedrooms">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" ngModel name="type" matInput placeholder="Type">
+        </mat-form-field>
+
+        <input type='file' id="image" ngModel name="image" (change)="readUrl($event)">
+        <img [src]="url">
+
+        <mat-form-field>
+            <input type="text" ngModel name="price" matInput placeholder="Price">
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+</form>

@@ -1,0 +1,36 @@
+<mat-list-item *ngIf="!isAuth">
+    <button mat-icon-button>
+        <mat-icon>home</mat-icon>
+    </button>
+    <a [routerLink]="[ '' ]" (click)="close()">Home</a>
+</mat-list-item>
+<mat-list-item *ngIf="isAuth">
+    <button mat-icon-button>
+        <mat-icon>list</mat-icon>
+    </button>
+    <a [routerLink]="[ 'listings' ]" (click)="close()">Listings</a>
+</mat-list-item>
+<mat-list-item *ngIf="isAuth">
+    <button mat-icon-button>
+        <mat-icon>add</mat-icon>
+    </button>
+    <a [routerLink]="[ 'addlisting' ]" (click)="close()">Add Listings</a>
+</mat-list-item>
+<mat-list-item  *ngIf="!isAuth">
+    <button mat-icon-button>
+        <mat-icon>input</mat-icon>
+    </button>
+    <a [routerLink]="[ '' ]" (click)="close()">Log In</a>
+</mat-list-item>
+<mat-list-item  *ngIf="isAuth">
+    <button mat-icon-button>
+        <mat-icon>error_outline</mat-icon>
+    </button>
+    <a [routerLink]="[ '' ]" (click)="close()">Logout</a>
+</mat-list-item>
+<mat-list-item  *ngIf="!isAuth">
+    <button mat-icon-button>
+        <mat-icon>error_outline</mat-icon>
+    </button>
+    <a [routerLink]="[ 'signup' ]" (click)="close()">Sign Up</a>
+</mat-list-item>

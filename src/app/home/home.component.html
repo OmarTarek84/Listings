@@ -1,0 +1,32 @@
+<section fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
+  <h1>Property Listings</h1>
+  <h3>Access the Hottest Property Available</h3>
+  <form fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="login()" #f="ngForm">
+    <mat-form-field>
+      <input type="email" 
+             matInput 
+             placeholder="Email" 
+             autocomplete="off" 
+             ngModel 
+             required 
+             email 
+             name="email" 
+             #Email="ngModel">
+      <mat-error *ngIf="!Email.hasError('required')">Email is not valid</mat-error>
+      <mat-error *ngIf="Email.hasError('required')">This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" 
+             matInput 
+             placeholder="Password" 
+             ngModel 
+             required 
+             name="password"
+             minlength="8"
+             #Password="ngModel">
+             <mat-hint align="end">{{ Password.value?.length }} / 8</mat-hint>
+             <mat-error>Should Be At Least 8 Characters.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary" [disabled]="f.invalid">Submit</button>
+  </form>
+</section>
