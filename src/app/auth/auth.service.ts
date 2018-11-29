@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ListingsService } from '../shared/listings.service';
+import { UIService } from '../shared/ui.service';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,8 @@ export class AuthService {
     constructor(private router: Router,
                 private route: ActivatedRoute ,
                 private firebaseauth: AngularFireAuth,
-                private listingService: ListingsService) {}
+                private listingService: ListingsService,
+                private uiService: UIService) {}
 
     registerUser(authdata: AuthData) {
         this.firebaseauth.auth.createUserWithEmailAndPassword(authdata.email, authdata.password);
@@ -22,10 +24,20 @@ export class AuthService {
     }
 
     logInUser(authdata: AuthData) {
-        this.firebaseauth.auth.signInWithEmailAndPassword(authdata.email, authdata.password);
-        this.isAuthenticated = true;
-        this.authChanged.emit(true);
-        this.router.navigate(['/listings']);
+        this.firebaseauth.auth.signInWithEmailAndPassword(authdata.email, authdata.password)
+        .then(
+            (result => {
+                this.isAuthenticated = true;
+                this.authChanged.emit(true);
+                this.router.navigate(['/listings']);
+            })
+        )
+        .catch(
+            (error => {
+                this.isAuthenticated = false;
+                this.uiService.loadError.emit(true);
+            })
+        );
     }
 
     isUser() {

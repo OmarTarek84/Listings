@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
+import { UIService } from '../shared/ui.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,17 @@ import { AuthService } from '../auth/auth.service';
 export class HomeComponent implements OnInit {
   @ViewChild('f') signinForm: NgForm;
   isAuth: false;
-  constructor(private authService: AuthService) { }
+  errorLogIn = false;
+  constructor(private authService: AuthService, private uiService: UIService) { }
 
   ngOnInit() {
+    this.uiService.loadError.subscribe(
+      (result => {
+        if (result) {
+          this.errorLogIn = true;
+        }
+      })
+    );
   }
 
   login() {

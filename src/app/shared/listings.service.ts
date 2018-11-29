@@ -22,15 +22,6 @@ export class ListingsService {
     toDo$: Observable<Listings[]>;
 
     private availableListings: Listings[] = [
-        /*{
-        bedrooms : 15,
-        city : 'San Francisco',
-        image : 'mansion1.jpg',
-        owner : 'Bruce Springstien',
-        price : '10m',
-        title : '15 Bedroom Mansion',
-        type : 'Estate'
-        } */
     ];
 
     getAvailableListings() {

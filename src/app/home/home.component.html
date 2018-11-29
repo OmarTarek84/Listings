@@ -1,6 +1,7 @@
 <section fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
   <h1>Property Listings</h1>
   <h3>Access the Hottest Property Available</h3>
+  <div class="logerror" *ngIf="errorLogIn">Wrong Email or Password</div>
   <form fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="login()" #f="ngForm">
     <mat-form-field>
       <input type="email" 

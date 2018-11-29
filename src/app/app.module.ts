@@ -24,6 +24,7 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ListingsService } from './shared/listings.service';
 import { ListingsTableComponent } from './listings/listings-table/listings-table.component';
+import { UIService } from './shared/ui.service';
 
 const route: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -60,7 +61,7 @@ const route: Routes = [
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, ListingsService],
+  providers: [AuthService, AuthGuard, ListingsService, UIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
